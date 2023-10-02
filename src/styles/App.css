@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200&display=swap');
+* {
+    margin: 0;
+   
+
+}
+body {
+    max-width: 100%;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    background-color: rgb(2, 1, 22);  
+   
+}
+.app{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    
+}
+.app--page{
+    background-color: aliceblue;
+}
+
+
+nav{
+    height: 30px;
+    position: sticky;
+    top: 0;
+    padding: 10px 10px 10px 20px;
+   display: flex;
+   align-items: center;
+   box-shadow: 0px 5px 8px 0px rgba(1, 245, 245, 0.5);
+
+}
+nav > img{
+max-width: 40px;
+background-repeat: no-repeat;
+margin-right: auto;
+}
+.main--title{
+ color: #FFFFFF;
+   
+}
+.main--subtitle{
+    margin-top: 10px;
+    width: 75%;
+    color: rgba(255, 255, 255, 0.7);
+    font-family:sans-serif;
+    font-weight: normal;
+    font-size:large;
+
+   
+}
+.main-greeting {
+    color: aqua;
+    font-size: small;
+}
+nav > ul {
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+    
+}
+.nav-links > a {
+    padding-right: 25px;
+    color: #FFFFFF;
+    font-size:15px;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.nav-links > a:hover {
+    color: aquamarine;
+} 
+
+.nav-links > a.active {
+  color: aquamarine;
+}
+
+.chat-box {
+    margin-top: 15px;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    background-color:  rgb(2, 1, 22);
+    border: 2px solid aqua;
+    
+}
+
+.chat-box > p{
+    font-size:15px;
+    font-weight:500;
+    color: white;
+}
+
+.main-content {
+    height: 100vh;
+    padding: 250px 50px 0px 100px;
+    text-align: left;
+    position: relative;
+ 
+}
+
+.main-content > h1{
+    font-size:50px;
+    letter-spacing: 5px;
+    color: white;
+}
+.social-links{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 250px;
+    max-width: 60px;
+    
+}
+.circle{
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    align-items: center;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.vertcal-line{
+  background-color: wheat;
+  margin-left: 20px;
+  width: 3px;
+  height: 100%;  
+}
+
+/*--------Footer------------*/
+.footer{
+    position: relative;
+    height: 20px;
+    width: 100%;
+}
+.footer >p {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    font-size: medium;
+    color: rgb(252, 251, 251, 0.6);
+    bottom: 0px;
+}

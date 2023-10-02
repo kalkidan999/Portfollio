@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Skills from './Screens/Skills';
+import Experience from './Screens/Experience';
+import Navbar from "./components/Navbar";
+import Home from "./Screens/Home";
+import NoMatch from './components/NoMatch';
+import SocialLinks from "./components/SocialLinks";
+import Footer from './components/Footer.js';
+import "./styles/App.css"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+    <div className="app">
+       <Navbar />
+       <Routes>
+      <Route className="app--page" path='/' element={<Home />}/>
+      <Route className="app--page" path='/skills' element={<Skills/>}/>
+      <Route className="app--page" path='/experience' element={<Experience/>}/>
+      <Route className="app--page" path="*" element={<NoMatch />} />
+    </Routes>
+    <SocialLinks />
+    <Footer />
     </div>
+    
   );
 }
 
