@@ -60,3 +60,25 @@ class ProjectsData {
         projectImage: 'assets/images/ciya_project.jpeg')
   ];
 }
+
+class SkillsData {
+  final String name;
+
+  SkillsData({required this.name});
+  static List<SkillsData> skills = <SkillsData>[
+    SkillsData(name: "Dart/Flutter"),
+    SkillsData(name: "Node.js"),
+    SkillsData(name: "Express"),
+    SkillsData(name: "JavaScript"),
+    SkillsData(name: "React"),
+    SkillsData(name: "Git & GitHub"),
+    SkillsData(name: "PlayStore & AppStore"),
+    SkillsData(name: "TestFlight"),
+    SkillsData(name: "Google APIs"),
+    SkillsData(name: "Firebase"),
+    SkillsData(name: "RestAPI"),
+    SkillsData(name: "Provider"),
+    SkillsData(name: "Bloc"),
+    SkillsData(name: "GetX")
+  ];
+}

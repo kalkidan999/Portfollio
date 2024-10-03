@@ -26,9 +26,9 @@ const Color error = Color(0xBBE64A19); //Color(0xBBE65100); //Color(0xC1FF2D2D);
 const Color warning = Color(0xBBE39219); //Color(0xC1FF2D2D);
 const Color success = Color(0xBB689F38); //Color(0xC1FF2D2D);
 
-const Color primaryColor = Color.fromARGB(255, 1, 5, 44);
+const Color primaryColor = Color.fromARGB(255, 27, 49, 240);
 const Color primaryDark = Color(0XFF085387);
-const Color secondaryColor = Color.fromARGB(255, 5, 7, 31); //light blue
+const Color backgroundColor = Color.fromRGBO(33, 125, 187, 0.8); //light blue
 const Color whiteColor = Colors.white;
 const Color whileColor80 = Color(0xFFCCCCCC);
 const Color whileColor60 = Color(0xFF999999);
@@ -77,6 +77,9 @@ String capitalizeUserName(String string) {
 }
 
 class ImagesAsset {
+  static String leadbg = "assets/images/lead-bg.jpg";
+  static String playstore = "assets/images/playstore.svg";
+  static String appstore = "assets/images/appstore.svg";
   CachedNetworkImageProvider cachedNetworkImageProvider(String img) {
     return CachedNetworkImageProvider(img);
   }

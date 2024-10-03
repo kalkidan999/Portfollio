@@ -5,7 +5,7 @@ import 'button_theme.dart';
 import 'input_decoration_theme.dart';
 
 const AppBarTheme appBarLightTheme = AppBarTheme(
-  backgroundColor: secondaryColor,
+//  backgroundColor: secondaryColor,
   elevation: 0,
   iconTheme: IconThemeData(color: whiteColor),
   titleTextStyle:
@@ -13,7 +13,7 @@ const AppBarTheme appBarLightTheme = AppBarTheme(
 );
 
 const AppBarTheme appBarDarkTheme = AppBarTheme(
-  backgroundColor: blackColor,
+  //backgroundColor: blackColor,
   elevation: 0,
   iconTheme: IconThemeData(color: Colors.white),
   titleTextStyle: TextStyle(
@@ -64,12 +64,12 @@ DataTableThemeData dataTableDarkThemeData = DataTableThemeData(
 
 ThemeData lightTheme(BuildContext context) {
   return ThemeData(
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       fontFamily: "Plus Jakarta",
       // primarySwatch: MaterialColor(0, {0: Colors.green.shade900}),
       primaryColor: primaryColor,
-      scaffoldBackgroundColor: primaryColor,
-      //  scaffoldBackgroundColor: Color.fromARGB(255, 249, 222, 222),
+      // scaffoldBackgroundColor: primaryColor,
+      scaffoldBackgroundColor: Color(0XFFf2f2f5),
       iconTheme: const IconThemeData(color: whiteColor),
       // textTheme: const TextTheme(
       //   bodyMedium: TextStyle(color: whiteColor),
