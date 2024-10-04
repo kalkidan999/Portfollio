@@ -18,8 +18,10 @@ class ExperienceView extends StatelessWidget {
         child: Column(
           children: [
             Text("Experience",
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w400, color: blackColor80)),
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineMedium
+                    ?.copyWith(color: blackColor80)),
             sizedHeight(deviceSize.height * 0.02),
 
             Column(

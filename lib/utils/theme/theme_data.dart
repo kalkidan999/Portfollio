@@ -65,7 +65,7 @@ DataTableThemeData dataTableDarkThemeData = DataTableThemeData(
 ThemeData lightTheme(BuildContext context) {
   return ThemeData(
       brightness: Brightness.light,
-      fontFamily: "Plus Jakarta",
+      fontFamily: "lato",
       // primarySwatch: MaterialColor(0, {0: Colors.green.shade900}),
       primaryColor: primaryColor,
       // scaffoldBackgroundColor: primaryColor,
@@ -79,7 +79,7 @@ ThemeData lightTheme(BuildContext context) {
       inputDecorationTheme: lightInputDecorationTheme,
       checkboxTheme:
           checkboxThemeData.copyWith(side: const BorderSide(color: whiteColor)),
-      appBarTheme: appBarLightTheme,
+      //appBarTheme: appBarLightTheme,
       scrollbarTheme: scrollbarThemeData,
       dataTableTheme: dataTableLightThemeData,
       cardTheme: lightcardTheme,
@@ -89,7 +89,7 @@ ThemeData lightTheme(BuildContext context) {
 ThemeData darkTheme(BuildContext context) {
   return ThemeData(
       brightness: Brightness.dark,
-      fontFamily: "Plus Jakarta",
+      fontFamily: "lato",
       //  primarySwatch: const MaterialColor(0, {0: Colors.green}),
       primaryColor: primaryColor,
       scaffoldBackgroundColor: blackColor,

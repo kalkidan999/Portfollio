@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 const InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
-  fillColor: lightGreyColor,
+  fillColor: Color.fromARGB(255, 11, 17, 74),
   filled: true,
   hintStyle: TextStyle(color: greyColor, fontSize: 14),
   border: outlineInputBorder,

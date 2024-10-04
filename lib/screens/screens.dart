@@ -1,7 +1,9 @@
 export 'introview/introview.dart';
-export 'homepage/views/homepage.dart';
+export 'homepage/homepage.dart';
 export 'aboutview/aboutview.dart';
 export 'experienceview/experience_view.dart';
 export 'educationview/education_view.dart';
 export 'projectview/project_view.dart';
 export 'skillsview/skills_view.dart';
+export 'contactview/contact_view.dart';
+export 'contactview/footer_view.dart';

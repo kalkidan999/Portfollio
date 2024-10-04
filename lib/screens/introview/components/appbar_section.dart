@@ -3,16 +3,22 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
 class AppbarSection extends StatelessWidget {
-  const AppbarSection({super.key});
+  const AppbarSection(
+      {super.key,
+      required this.appBarOnHoverd,
+      required this.onHoverAppBar,
+      required this.appBarHoveredIndex,
+      required this.scrolltoSectionpress});
+
+  final bool appBarOnHoverd;
+  final Function(bool isHovered, int index) onHoverAppBar;
+  final int appBarHoveredIndex;
+  final Function(bool willpop, int index) scrolltoSectionpress;
 
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    TextStyle? actionTextStyle = Theme.of(context)
-        .textTheme
-        .bodySmall
-        ?.copyWith(
-            fontWeight: FontWeight.w500, letterSpacing: 1.0, color: whiteColor);
+
     return SizedBox(
       height: deviceSize.height * 0.1,
       width: deviceSize.width * 0.99,
@@ -22,9 +28,7 @@ class AppbarSection extends StatelessWidget {
           sizedWidth(deviceSize.width * 0.05),
           InkWell(
             onTap: () {
-              // scrollToId.animateTo(0.toString(),
-              //     duration: const Duration(milliseconds: 500),
-              //     curve: Curves.ease);
+              scrolltoSectionpress(false, 0);
             },
             child: Text("Portfolio",
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -38,43 +42,27 @@ class AppbarSection extends StatelessWidget {
           Row(
               children: List.generate(navbarList.length, (index) {
             return MouseRegion(
-              onHover: (event) => _onHoverAppBar(true, index),
-              onExit: (event) => _onHoverAppBar(false, index),
+              onHover: (event) => onHoverAppBar(true, index),
+              onExit: (event) => onHoverAppBar(false, index),
               child: InkWell(
                 onTap: () {
-                  // scrollToId.animateTo('$index',
-                  //     duration: const Duration(milliseconds: 500),
-                  //     curve: Curves.ease);
+                  scrolltoSectionpress(false, index);
                 },
                 child: Container(
                     margin: EdgeInsets.only(
                         top: 10, right: deviceSize.width * 0.05),
                     child: Text(navbarList[index],
-                        style: actionTextStyle?.copyWith(
-
-                            //  _onappBarHoverd && appBarHoveredIndex == index
-                            //     ? Colors.cyan
-                            //:
-                            ))),
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 1.0,
+                            color: appBarOnHoverd && appBarHoveredIndex == index
+                                ? Colors.cyan
+                                : whiteColor))),
               ),
             );
           })),
         ],
       ),
     );
-  }
-
-  void _onHover(bool isHovered, int index) {
-    // setState(() {
-    //   _onHoverd = isHovered;
-    //   selectedIndex = index;
-    // });
-  }
-
-  void _onHoverAppBar(bool isHovered, int index) {
-    // setState(() {
-    //   _onappBarHoverd = isHovered;
-    //   appBarHoveredIndex = index;
-    // });
   }
 }

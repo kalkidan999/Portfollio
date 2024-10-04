@@ -83,11 +83,11 @@ flutter:
     - family: AquateScript
       fonts:
         - asset: assets/fonts/AquateScript.ttf
-    - family: Rubik
-      fonts:
-        - asset: assets/fonts/Rubik-Regular.ttf
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Bold.ttf
+    - family: lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

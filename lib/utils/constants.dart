@@ -7,6 +7,8 @@ Size deviceSize(BuildContext context) => MediaQuery.of(context).size;
 const double defaultPadding = 16.0;
 const Duration defaultDuration = Duration(milliseconds: 300);
 
+var scaffoldKey = GlobalKey<ScaffoldState>();
+
 //log in debugmode only
 bool debug = true;
 printDebug(dynamic message) {
@@ -28,7 +30,8 @@ const Color success = Color(0xBB689F38); //Color(0xC1FF2D2D);
 
 const Color primaryColor = Color.fromARGB(255, 27, 49, 240);
 const Color primaryDark = Color(0XFF085387);
-const Color backgroundColor = Color.fromRGBO(33, 125, 187, 0.8); //light blue
+const Color backgroundColor = Color.fromARGB(255, 7, 27, 98);
+//Color.fromRGBO(33, 125, 187, 0.8); //light blue
 const Color whiteColor = Colors.white;
 const Color whileColor80 = Color(0xFFCCCCCC);
 const Color whileColor60 = Color(0xFF999999);
@@ -51,7 +54,15 @@ const Color blackColor5 = Color(0xFFF3F3F4);
 
 const double defaultBorderRadius = 12.0;
 
-List<String> navbarList = ["", "About", "Experience", "Projects", "Contact"];
+List<String> navbarList = [
+  "",
+  "About",
+  "Experience",
+  "Education",
+  "Projects",
+  "Skills",
+  "Contact",
+];
 
 String capitalize(String string) {
   return string.isEmpty
@@ -80,6 +91,13 @@ class ImagesAsset {
   static String leadbg = "assets/images/lead-bg.jpg";
   static String playstore = "assets/images/playstore.svg";
   static String appstore = "assets/images/appstore.svg";
+
+  static List<String> imageLinks() => [
+        "assets/images/github.svg",
+        "assets/images/instagram.svg",
+        "assets/images/linkedin.svg",
+        "assets/images/twitter.svg",
+      ];
   CachedNetworkImageProvider cachedNetworkImageProvider(String img) {
     return CachedNetworkImageProvider(img);
   }
