@@ -33,7 +33,7 @@ class _HomepageState extends State<Homepage> {
                     id: index.toString(),
                     child: switch (index) {
                       0 => Introview(
-                          constraints: constraints,
+                          homeconstraints: constraints,
                           scrolltoSectionpress: (bool willpop, int index) {
                             scrollToId.animateTo(index.toString(),
                                 duration: const Duration(milliseconds: 500),
@@ -41,13 +41,13 @@ class _HomepageState extends State<Homepage> {
                             if (willpop) Navigator.pop(context);
                           }),
                       1 => Aboutview(constraints: constraints),
-                      2 => ExperienceView(constraints: constraints),
+                      2 => const ExperienceView(),
                       3 => EducationView(constraints: constraints),
-                      4 => ProjectView(constraints: constraints),
+                      4 => const ProjectView(),
                       5 => SkillsView(constraints: constraints),
                       6 => ContactView(constraints: constraints),
                       int() => Introview(
-                          constraints: constraints,
+                          homeconstraints: constraints,
                           scrolltoSectionpress: (bool willpop, int index) {
                             scrollToId.animateTo(index.toString(),
                                 duration: const Duration(milliseconds: 500),

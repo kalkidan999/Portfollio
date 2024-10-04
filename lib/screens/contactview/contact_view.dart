@@ -91,10 +91,10 @@ class _ContactViewState extends State<ContactView> {
                   width: deviceSize.width * 0.25,
                   child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                          // backgroundColor: primaryColor,
+                          backgroundColor: primaryColor,
                           shape: BeveledRectangleBorder(
-                        borderRadius: BorderRadius.circular(2),
-                      )),
+                            borderRadius: BorderRadius.circular(2),
+                          )),
                       onPressed: _sendEmail,
                       icon: const Icon(Icons.mail),
                       label: Text("Shoot",

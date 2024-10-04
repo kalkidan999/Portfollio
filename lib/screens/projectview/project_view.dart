@@ -7,9 +7,7 @@ import '../../app.dart';
 class ProjectView extends StatefulWidget {
   const ProjectView({
     super.key,
-    required this.constraints,
   });
-  final BoxConstraints constraints;
 
   @override
   State<ProjectView> createState() => _ProjectViewState();
@@ -22,56 +20,58 @@ class _ProjectViewState extends State<ProjectView> {
   int hoveredIndex = 0;
   @override
   Widget build(BuildContext context) {
-    double screenWidth = widget.constraints.maxWidth;
-    bool isMobile = screenWidth < 600;
-
     final deviceSize = MediaQuery.of(context).size;
-    return Padding(
-        padding: EdgeInsets.all(deviceSize.width * 0.03),
-        child: Column(
-          children: [
-            Text("Projects",
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium
-                    ?.copyWith(color: blackColor80)),
-            sizedHeight(deviceSize.height * 0.02),
-            Column(
-                children:
-                    List.generate(ProjectsData.projectsData.length, (index) {
-              return Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: greyColor),
-                      borderRadius: BorderRadius.circular(defaultBorderRadius)),
-                  margin: const EdgeInsets.all(defaultPadding),
-                  child: !isMobile
-                      ? Row(children: [
-                          Container(
-                              height: deviceSize.height * 0.35,
-                              width: deviceSize.width * 0.3,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(ProjectsData
-                                          .projectsData[index].projectImage),
-                                      fit: BoxFit.cover))),
-                          sizedWidth(deviceSize.width * 0.06),
-                          projectDetails(context, index)
-                        ])
-                      : projectDetails(context, index));
-            }))
-          ],
-        ));
+    return LayoutBuilder(builder: (context, constraints) {
+      double screenWidth = constraints.maxWidth;
+      bool isMobile = screenWidth < 600;
+      bool isTablet = screenWidth >= 600 && screenWidth < 1024;
+      return Padding(
+          padding: EdgeInsets.all(deviceSize.width * 0.03),
+          child: Column(
+            children: [
+              Text("Projects",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
+                      ?.copyWith(color: blackColor80)),
+              sizedHeight(deviceSize.height * 0.02),
+              Column(
+                  children:
+                      List.generate(ProjectsData.projectsData.length, (index) {
+                return Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: greyColor),
+                        borderRadius:
+                            BorderRadius.circular(defaultBorderRadius)),
+                    margin: const EdgeInsets.all(defaultPadding),
+                    child: !(isMobile || isTablet)
+                        ? Row(children: [
+                            Container(
+                                height: deviceSize.height * 0.35,
+                                width: deviceSize.width * 0.3,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(ProjectsData
+                                            .projectsData[index].projectImage),
+                                        fit: BoxFit.cover))),
+                            sizedWidth(deviceSize.width * 0.06),
+                            projectDetails(context, index, constraints.maxWidth)
+                          ])
+                        : projectDetails(context, index, constraints.maxWidth));
+              }))
+            ],
+          ));
+    });
   }
 
-  Column projectDetails(BuildContext context, int index) {
-    double screenWidth = widget.constraints.maxWidth;
+  Column projectDetails(BuildContext context, int index, double screenWidth) {
     bool isMobile = screenWidth < 600;
-
+    bool isTablet = screenWidth >= 600 && screenWidth < 1024;
     final deviceSize = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if ((isMobile)) sizedHeight(deviceSize.height * 0.02),
+        if ((isMobile || isTablet)) sizedHeight(deviceSize.height * 0.02),
         Text(ProjectsData.projectsData[index].projectName,
             style: Theme.of(context)
                 .textTheme
@@ -79,7 +79,8 @@ class _ProjectViewState extends State<ProjectView> {
                 ?.copyWith(color: blackColor80)),
         sizedHeight(deviceSize.height * 0.02),
         SizedBox(
-          width: isMobile ? double.infinity : deviceSize.width * 0.5,
+          width:
+              isMobile || isTablet ? double.infinity : deviceSize.width * 0.5,
           child: Text(
             ProjectsData.projectsData[index].projectDescription,
             style: Theme.of(context)
@@ -139,7 +140,7 @@ class _ProjectViewState extends State<ProjectView> {
                 ))
           ],
         ),
-        if (isMobile) sizedHeight(deviceSize.height * 0.02),
+        if (isMobile || isTablet) sizedHeight(deviceSize.height * 0.02),
       ],
     );
   }
@@ -158,14 +159,14 @@ class _ProjectViewState extends State<ProjectView> {
   void _onPlayStoreHover(bool isHovered, int index) {
     setState(() {
       playStoreHovered = isHovered;
-      hoveredIndex = hoveredIndex == index ? 1000 : index;
+      hoveredIndex = index;
     });
   }
 
   void _onAppStoreHover(bool isHovered, int index) {
     setState(() {
       appStoreHovered = isHovered;
-      hoveredIndex = hoveredIndex == index ? 1000 : index;
+      hoveredIndex = index;
     });
   }
 }

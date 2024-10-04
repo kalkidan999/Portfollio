@@ -28,7 +28,7 @@ const Color error = Color(0xBBE64A19); //Color(0xBBE65100); //Color(0xC1FF2D2D);
 const Color warning = Color(0xBBE39219); //Color(0xC1FF2D2D);
 const Color success = Color(0xBB689F38); //Color(0xC1FF2D2D);
 
-const Color primaryColor = Color.fromARGB(255, 27, 49, 240);
+const Color primaryColor = Color.fromARGB(255, 11, 17, 74);
 const Color primaryDark = Color(0XFF085387);
 const Color backgroundColor = Color.fromARGB(255, 7, 27, 98);
 //Color.fromRGBO(33, 125, 187, 0.8); //light blue
